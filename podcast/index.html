@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Podcast Topic Navigator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">Automated Transcription + Segmentation</p>
+      <h1>Podcast Topic Navigator</h1>
+      <p class="subtitle">Upload multiple episodes, inspect timeline blocks, search keywords, and jump to exact audio moments.</p>
+    </header>
+
+    <section class="controls card">
+      <div class="control-row">
+        <label for="audio-file" class="label">Audio Files</label>
+        <div id="drop-zone" class="drop-zone">Drag & drop audio files here or use file picker</div>
+        <input id="audio-file" type="file" accept="audio/*,.mp3,.wav,.m4a,.aac,.ogg,.flac,.opus,.wma,.mp4,.webm" multiple="multiple" />
+        <p id="file-count" class="label">No files selected</p>
+        <div id="file-list" class="file-list"></div>
+      </div>
+      <div class="control-row">
+        <button id="process-button" type="button">Process Episodes</button>
+        <input id="search-input" type="text" placeholder="Search topics, keywords, exact words" />
+      </div>
+      <div class="control-row episode-row">
+        <label for="episode-select" class="label">Selected Episode</label>
+        <select id="episode-select"></select>
+      </div>
+      <audio id="audio-player" controls></audio>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Audio Summary</h2>
+        <p>Summary from uploaded audio</p>
+      </div>
+      <pre id="audio-summary" class="full-transcript">No summary generated yet.</pre>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Topic Segmentation</h2>
+        <p id="segment-count">0 segments</p>
+      </div>
+      <div id="transcript-viewer" class="segments"></div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
